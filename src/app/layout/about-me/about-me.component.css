@@ -1,0 +1,440 @@
+.container h1 {
+  font-size: 96px;
+}
+
+.appear {
+  animation: 1.5s appear cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    /* scale: 0; */
+    transform: translate(0, 20%);
+  }
+
+  to {
+    opacity: 1;
+    /* scale: 1; */
+    transform: translate(0, 0);
+  }
+}
+
+.MyPic {
+  height: 500px;
+  border-radius: 50%;
+}
+
+/* Scroll Animations */
+.left-section {
+  transform: translateY(-100px);
+  opacity: 0;
+  scale: 0.8;
+  animation: slide-in-left linear forwards;
+  animation-timeline: view(-200px);
+  animation-range: 250px 500px;
+}
+
+@keyframes slide-in-left {
+  to {
+    scale: 1;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.right-section {
+  transform: translateY(100px);
+  opacity: 0;
+  scale: 0.8;
+  animation: slide-in-right linear forwards;
+  animation-timeline: view(-100px);
+  animation-range: 250px 500px;
+}
+
+@keyframes slide-in-right {
+  to {
+    scale: 1;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.platformLinks img {
+  height: 45px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s linear;
+}
+
+.social-media {
+  display: flex;
+  gap: 20px;
+  /* Space between icons */
+}
+
+.social-icon {
+  text-decoration: none;
+  /* Remove underline from links */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  /* For the underline effect */
+}
+
+.social-icon img {
+  width: 50px;
+  /* Adjust icon size */
+  height: 50px;
+  /* Adjust icon size */
+  transition: color 0.3s ease;
+  /* Smooth color transition */
+}
+
+.social-icon:hover {
+  cursor: pointer;
+  /* Change cursor to pointer */
+}
+
+.social-icon::after {
+  content: "";
+  /* Create an underline effect */
+  position: absolute;
+  width: 0;
+  /* Start with width 0 */
+  height: 2px;
+  /* Underline thickness */
+  background-color: #000;
+  /* Underline color */
+  bottom: -5px;
+  /* Position under the icon */
+  left: 50%;
+  /* Center the underline */
+  transform: translateX(-50%);
+  /* Centering adjustment */
+  transition: width 0.3s ease;
+  /* Smooth transition for underline width */
+}
+
+.social-icon:hover::after {
+  width: 100%;
+  /* Grow to full width on hover */
+}
+
+/* Experience Section */
+.ExperienceSection {
+  background-color: palegoldenrod;
+  margin-top: 4rem;
+  padding: 6rem 11.25rem 3rem 11.25rem;
+  scale: 0.8;
+  opacity: 0;
+  animation: fade-in linear forwards;
+  animation-timeline: view(-200px);
+  animation-range: 250px 500px;
+}
+
+@keyframes fade-in {
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+
+.MyName {
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.Designation {
+  line-height: 1;
+}
+
+.ExperinceDuration {
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.DesignationWithCompanyName {
+  font-weight: 600;
+}
+
+.ExperienceCard {
+  border-radius: 10px;
+  /* Rounded corners */
+  padding: 20px;
+  /* Padding inside the div */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* Light border for depth */
+  backdrop-filter: blur(10px);
+  /* Blurs the content behind the div */
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+  /* Smooth transition */
+  height: fit-content;
+  cursor: pointer;
+}
+
+.ExperienceCard:hover {
+  background: rgba(255, 255, 255, 0.2);
+  /* Semi-transparent white */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /* Soft shadow for depth */
+}
+
+.TechPillGroup {
+  display: ruby;
+}
+
+.techPill {
+  padding: 6px 12px;
+  margin: 3px;
+  border-radius: 25px;
+  background-color: gray;
+  color: greenyellow;
+  white-space: nowrap;
+}
+
+/* Skills Section */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allows wrapping of pills */
+  gap: 10px;
+  /* Space between pills */
+  max-width: 100%;
+  /* Ensures container fits within its parent */
+}
+
+.skill-pill {
+  position: relative;
+  /* Needed for positioning the tooltip */
+  width: 40px;
+  /* Updated width */
+  height: 40px;
+  /* Updated height */
+  overflow: hidden;
+  /* Hides overflow content */
+  border-radius: 50%;
+  /* Makes the pills circular */
+  background-color: #f1f1f1;
+  /* Optional background color */
+  display: flex;
+  justify-content: center;
+  /* Centers the image */
+  align-items: center;
+  /* Centers the image */
+  transition: transform 0.3s ease;
+  /* Smooth transition for scaling */
+}
+
+.skill-pill:hover {
+  transform: scale(1.1);
+  /* Slightly scale up on hover */
+}
+
+.skill-pill img {
+  width: 100%;
+  /* Image fills the pill */
+  height: auto;
+  /* Maintains aspect ratio */
+}
+
+/* Tooltip styling */
+.skill-pill::after {
+  content: attr(title);
+  /* Gets the tooltip text from the title attribute */
+  position: absolute;
+  bottom: 45px;
+  /* Position above the pill */
+  left: 50%;
+  transform: translateX(-50%);
+  /* Center the tooltip */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Dark background for tooltip */
+  color: white;
+  /* White text color */
+  padding: 5px;
+  /* Padding around the text */
+  border-radius: 5px;
+  /* Rounded corners */
+  white-space: nowrap;
+  /* Prevent text from wrapping */
+  opacity: 0;
+  /* Initially hidden */
+  transition: opacity 0.3s;
+  /* Smooth transition for showing */
+  pointer-events: none;
+  /* Prevent tooltip from blocking hover */
+}
+
+.skill-pill:hover::after {
+  opacity: 1;
+  /* Show tooltip on hover */
+}
+
+
+/* Education section */
+.education-section {
+  display: inline-block;
+  margin: 20px auto;
+}
+
+.education-section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333;
+  /* Darker text color */
+}
+
+.degree-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* Space between degrees */
+}
+
+.degree {
+  background: rgba(255, 255, 255, 0.2);
+  /* Semi-transparent white */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  /* Soft shadow for depth */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  /* Light border for depth */
+  backdrop-filter: blur(10px);
+  /* Blurs the content behind the div */
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.degree:hover {
+  transform: translateY(-5px);
+  /* Slight lift effect on hover */
+}
+
+.degree h3 {
+  font-size: 1.5em;
+  margin: 0;
+  color: #2c3e50;
+  /* Darker color for degree titles */
+}
+
+.institution {
+  font-size: 16px;
+  color: #7f8c8d;
+  /* Grey color for institution */
+  margin: 5px 0;
+}
+
+.year {
+  font-size: 1em;
+  color: #95a5a6;
+  /* Light grey color for year */
+}
+
+.text-container {
+  font-size: 32px;
+  /* Base font size */
+  cursor: zoom-in;
+  /* Zoom-in cursor */
+}
+
+.text-container span {
+  display: inline-block;
+  /* Allow for scaling */
+  transition: transform 0.1s ease;
+  /* Smooth transition for scaling */
+}
+
+.text-container span:hover {
+  transform: scale(1.2);
+  /* Scale up on hover */
+}
+
+/* Development skills carousal styling */
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  /* Hide overflow for scrolling */
+  position: relative;
+  /* Position for the pseudo-element */
+}
+
+.carousel-content {
+  display: flex;
+  transition: transform 0s;
+  /* No transition for smooth continuous scrolling */
+}
+
+.item {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-right: 20px;
+  /* Space between items */
+  flex: 0 0 200px;
+  /* Fixed width for items */
+  text-align: center;
+  /* Center text */
+}
+
+/* Add fading effect */
+.carousel-container::before,
+.carousel-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 50px;
+  /* Width of the fade effect */
+  height: 100%;
+  z-index: 1;
+  /* Ensure it appears above content */
+}
+
+.carousel-container::before {
+  left: 0;
+  /* Fade from the left */
+  background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+.carousel-container::after {
+  right: 0;
+  /* Fade from the right */
+  background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+  .container h1 {
+    font-size: 56px;
+  }
+
+  .MyPic {
+    width: 100%;
+    height: auto;
+  }
+
+  .social-media {
+    gap: 10px;
+    /* Space between icons */
+  }
+
+  .social-icon img {
+    width: 40px;
+    /* Adjust icon size */
+    height: 40px;
+    /* Adjust icon size */
+  }
+
+  .MyPic {
+    border-radius: 6px;
+  }
+
+  .ExperienceSection {
+    margin-top: 4rem;
+    padding: 3rem 1rem;
+  }
+}

@@ -1,0 +1,101 @@
+body {
+    overflow-x: hidden;
+}
+.content {
+    color: transparent;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-color: black;
+    transform: translateY(100%);
+    animation: slideDown 1s forwards;
+    z-index: 1;
+}
+
+@keyframes slideDown {
+    to {
+        transform: translateY(0);
+    }
+}
+
+body {
+    animation: backgroundChange 1s forwards 1s;
+}
+
+@keyframes backgroundChange {
+    to {
+        background-color: black;
+    }
+}
+
+.content {
+    animation: textColorChange 1s forwards 1s;
+}
+
+@keyframes textColorChange {
+    to {
+        color: white;
+    }
+}
+
+.previewSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+    border: 0.5px solid dimgray;
+    padding: 20px;
+    cursor: zoom-in;
+    transition: 0.3s linear;
+    transform: translateY(100%);
+    opacity: 0;
+    animation: slideUp 1s forwards;
+    animation-delay: 0.5s;
+    overflow: hidden;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.previewSection:hover {
+    padding: 10px;
+    background-color: dimgray;
+}
+
+.projectThumbnail {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.previewDetails {
+    bottom: -20%;
+    transition: 0.2s linear;
+    background-color: rgb(255, 255, 255);
+    color: rgb(48, 35, 35);
+    opacity: 0;
+    box-shadow: 0 0 20px black;
+}
+
+.previewDetails p{
+    font-weight: 100;
+}
+
+.previewSection:hover .previewDetails {
+    bottom: 0;
+    opacity: 1;
+}

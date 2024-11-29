@@ -1,0 +1,106 @@
+.goback {
+    height: 36px;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+}
+
+p {
+    margin: 0;
+    font-size: small;
+}
+
+.projectDetailsContent {
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    width: 640px;
+    max-width: 100%;
+    right: 0;
+    top: 0;
+    z-index: 11;
+    padding: 10px;
+    box-shadow: 0 0 80px black;
+    overflow: scroll;
+    right: -100%;
+    animation: slide-in-right cubic-bezier(0.4, 0, 0.2, 1) forwards 0.8s;
+    animation-range: 250px 500px;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slide-in-right {
+    to {
+        right: 0%;
+    }
+}
+
+.move-out {
+    transform: translateX(100%);
+}
+
+.carousel-inner img {
+    max-height: 500px;
+    /* Adjust based on your design */
+    object-fit: cover;
+    /* Keeps aspect ratio while filling the container */
+    width: 100%;
+}
+
+.techStackContainer {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow items to wrap onto the next line */
+    justify-content: flex-start;
+}
+
+.techPill {
+    padding: 6px 12px;
+    margin: 3px;
+    border-radius: 25px;
+    background-color: #efe9e4;
+    color: black;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    transition: 0.3s linear;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h5 img {
+    height: 22px;
+}
+
+.open-project {
+    position: fixed;
+    width: 640px;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    color: white;
+    z-index: 12;
+    right: -100%;
+    animation: slide-in-right cubic-bezier(0.4, 0, 0.2, 1) forwards 0.8s;
+    animation-range: 250px 500px;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+.open-project span {
+    cursor: pointer;
+    transition: 0.3s linear;
+}
+
+.open-project span:hover {
+    text-decoration: underline;
+}
+
+.open-project img {
+    filter: invert(1);
+    height: 26px;
+    cursor: pointer;
+}

@@ -1,1 +1,99 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Blorado, sans-serif;
+  transition: background 0.2s linear;
+  background-color: #fff;
+}
+body {
+    background: 
+      repeating-linear-gradient(
+        to right,
+        rgba(217, 217, 217, 0.252) 0,
+        rgba(217, 217, 217, 0.252) 1px,
+        transparent 1px,
+        transparent 100px
+      ),
+      repeating-linear-gradient(
+        to bottom,
+        rgba(217, 217, 217, 0.252) 0,
+        rgba(217, 217, 217, 0.252) 1px,
+        transparent 1px,
+        transparent 100px
+      );
+  }
+  
+  
+  
+
+body.dark h1,
+body.dark .support a {
+  color: #fff;
+}
+
+.navSpacing {
+  margin-top: 8rem;
+}
+
+.pageHeading {
+  font-size: 96px;
+}
+
+@media (max-width: 900px) {
+  .navSpacing {
+    margin-top: 7.4rem;
+  }
+
+  .pageHeading {
+    font-size: 67px;
+  }
+}
+
+.fadeOut {
+  animation: fadeOut 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+@keyframes fadeOut {
+  to {
+    transform: translateY(25%);
+    opacity: 0;
+  }
+}
+
+#watermarkText {
+  pointer-events: none;
+  font-family: "Limelight", sans-serif;
+  font-size: 260px;
+  font-weight: 400;
+  font-style: normal;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: 4;
+  animation: slidein 1s linear forwards;
+  background-color: transparent;
+  color: #a6a6a6d5;
+  animation-delay: 1s;
+  transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slidein {
+    to {
+        opacity: 0.1;
+    }
+}
+
+.fadeSlideOut {
+    bottom: -25% !important;
+    opacity: 0 !important;
+    transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: none !important;
+}

@@ -1,0 +1,45 @@
+<div class="container-fluid content px-0 navSpacing">
+    <h1 class="pageHeading">Projects</h1>
+    <p>Check out some of my latest works</p>
+    <hr class="mt-5">
+    <p>A collection of weird websites, niche data projects, and CSS experiments.</p>
+    <hr>
+    <div class="w-100 d-flex">
+        <div class="row">
+            <div class="col-md-6 col-12 previewSection" (click)="viewDetails('UI/UXERA')">
+                <img class="projectThumbnail" src="../../../assets/images/Portfolio/UI-UXera-Screen1.png" alt="">
+                <div class="previewDetails position-absolute w-100 py-3">
+                    <div>
+                        <p class="p-0 m-0">Project Name :</p><h4>UI/UXERA</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 previewSection" (click)="viewDetails('MOVIESAPP')">
+                <img class="projectThumbnail" src="../../../assets/images/Portfolio/moviesapp-screen2.png" alt="">
+                <div class="previewDetails position-absolute w-100 py-3">
+                    <div>
+                        <p class="p-0 m-0">Project Name :</p><h4>JMDB</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 previewSection" (click)="viewDetails('WEATHERAPP')">
+                <img class="projectThumbnail" src="../../../assets/images/Portfolio/weatherapp-screen3.png" alt="">
+                <div class="previewDetails position-absolute w-100 py-3">
+                    <div>
+                        <p class="p-0 m-0">Project Name :</p><h4>4CAST</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 previewSection" (click)="viewDetails('PP')">
+                <img class="projectThumbnail" src="../../../assets/images/Portfolio/projectplanner-screen1.png" alt="">
+                <div class="previewDetails position-absolute w-100 py-3">
+                    <div>
+                        <p class="p-0 m-0">Project Name :</p><h4>PROJECT PULSE</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-project-details *ngIf="projectsService.viewDetails" [appName]="showAppDetailsFor"></app-project-details>
+<div class="overlay"></div>

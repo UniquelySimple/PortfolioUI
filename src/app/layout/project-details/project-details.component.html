@@ -1,0 +1,43 @@
+<div #projectDetails class="projectDetailsContent pb-5">
+    <div class="p-3">
+        <img (click)="close()" class="goback" src="../../../assets/images/goback.png" alt="" srcset="">
+        <p>Project Name :</p>
+        <h1>UI/UXERA</h1>
+    </div>
+
+    <p-galleria [value]="images" [autoPlay]="true" [circular]="true" [showItemNavigators]="true"
+        [showThumbnails]="false" [showIndicators]="true" [showIndicatorsOnItem]="true"
+        [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px', 'margin-top': '2em' }">
+        <ng-template pTemplate="item" let-item>
+            <img [src]="item.itemImageSrc"
+                style="width: 100%; display: block; max-height: 383px; object-fit: contain;" />
+        </ng-template>
+        <ng-template pTemplate="thumbnail" let-item>
+            <div class="grid grid-nogutter justify-content-center">
+                <img [src]="item.thumbnailImageSrc" style="display: block;" />
+            </div>
+        </ng-template>
+    </p-galleria>
+    <div class="p-3">
+        <h5>About</h5>
+        <span style="font-weight: 300; font-size: 14px;">{{details.about}}</span>
+    </div>
+    <div class="p-3">
+        <h5>Technologies</h5>
+        <div class="techStackContainer">
+            <div class="techPill" *ngFor="let item of details.technologies">{{item}}</div>
+        </div>
+    </div>
+    <div class="p-3">
+        <h5 class="d-flex align-items-center"><img src="../../../assets/images/website.png" class="me-2" alt="" srcset="">Website</h5>
+        <a href="http://www.google.com">{{details.website}}</a>
+    </div>
+    <div class="p-3 mb-3">
+        <h5 class="d-flex align-items-center"><img src="../../../assets/images/github.png" class="me-2" alt="" srcset="">Github</h5>
+        <a href="http://">{{details.github}}</a>
+    </div>
+    <div class="open-project py-3 d-flex justify-content-center align-items-center">
+        <span class="me-2" (click)="openProject()">Open Project</span>
+        <img src="../../../assets/images/projectLink.png" alt="" srcset="">
+    </div>
+</div>
