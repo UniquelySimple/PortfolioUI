@@ -7,6 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { MainService } from './services/main.service';
 
 @Component({
   selector: 'app-root',
@@ -18,8 +19,7 @@ import { Router, RouterModule } from '@angular/router';
 export class AppComponent implements OnInit, AfterViewInit {
   isNavDark: boolean = false;
   isHamburgerTriggered: boolean = false;
-
-  constructor(private router: Router) {}
+  constructor(private router: Router, private mainService: MainService) {}
   @ViewChild('hamburger')
   hamburgerElem!: ElementRef;
 
@@ -38,7 +38,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       // this.setCloseEventListener();
       // this.navLinks.nativeElement.classList.toggle('active'); // Toggle the active class to show/hide links
     });
-    
+
     this.themeToggle.nativeElement.addEventListener('change', () => {
       document.body.classList.toggle('dark-mode');
     });
@@ -101,21 +101,32 @@ export class AppComponent implements OnInit, AfterViewInit {
       });
     });
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.mainService.NavThemeToggle$.subscribe((data: boolean) => {
+      if (data) {
+        this.changeToDark(data);
+      }
+    });
+  }
 
   changeToDark(check: boolean) {
+    if (check && this.isNavDark) {
+      return;
+    }
     if (check && !this.isNavDark) {
       this.navLinks.nativeElement.style.filter = 'invert(1)';
+      this.hamburgerElem.nativeElement.style.filter = 'invert(1)';
       this.isNavDark = true;
     } else {
       if (this.isNavDark) {
         this.navLinks.nativeElement.style.filter = 'invert(0)';
+        this.hamburgerElem.nativeElement.style.filter = 'invert(0)';
         this.isNavDark = false;
       }
     }
   }
 
-  setCloseEventListener () {
+  setCloseEventListener() {
     this.closeNavElem.nativeElement.addEventListener('click', () => {
       this.isHamburgerTriggered = !this.isHamburgerTriggered;
       // this.navLinks.nativeElement.classList.toggle('active'); // Toggle the active class to show/hide links
@@ -123,6 +134,14 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   navigateWithReverseAnimation(componentRoute: string) {
+    if (this.mainService.currentRoute == componentRoute) {
+      return;
+    }
+    if (this.isHamburgerTriggered) {
+      this.isHamburgerTriggered = !this.isHamburgerTriggered;
+    }
+    this.mainService.currentRoute = componentRoute;
+    console.log('routeToNavigate : ', componentRoute);
     let element = document.getElementsByClassName('container-fluid')[0];
     let watermark = document.querySelector('#watermarkText');
     console.log(watermark);

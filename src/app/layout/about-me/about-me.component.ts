@@ -7,6 +7,7 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { MainService } from '../../services/main.service';
 
 interface Item {
   title: string;
@@ -34,7 +35,10 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
   speed: number = 0.6; // Speed of scrolling
   intervalId!: any;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private mainService: MainService
+  ) {}
   ngAfterViewInit(): void {
     this.startAutoScroll();
     this.loadLottieAnimation();
@@ -79,6 +83,7 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
   }
 
   route(path: string) {
+    this.mainService.toggleNavTheme(true);
     this.router.navigate(['/projects']);
   }
 

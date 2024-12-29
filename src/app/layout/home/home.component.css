@@ -15,6 +15,14 @@
   animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
 }
 
+.learn-more p {
+  transition: 0.2s linear;
+}
+
+.learn-more p:hover {
+  text-decoration: underline;
+}
+
 @keyframes reveal {
   0% {
     opacity: 0;
@@ -125,19 +133,19 @@
 
 @keyframes slideIn1 {
   to {
-    transform: translateY(14%);
+    transform: translateY(9%);
   }
 }
 
 @keyframes slideIn2 {
   to {
-    transform: translateY(17%);
+    transform: translateY(11.5%);
   }
 }
 
 @keyframes slideIn3 {
   to {
-    transform: translateY(22%);
+    transform: translateY(15%);
   }
 }
 

@@ -12,26 +12,20 @@ body {
   transition: background 0.2s linear;
   background-color: #fff;
 }
+
 body {
-    background: 
-      repeating-linear-gradient(
-        to right,
-        rgba(217, 217, 217, 0.252) 0,
-        rgba(217, 217, 217, 0.252) 1px,
-        transparent 1px,
-        transparent 100px
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        rgba(217, 217, 217, 0.252) 0,
-        rgba(217, 217, 217, 0.252) 1px,
-        transparent 1px,
-        transparent 100px
-      );
-  }
-  
-  
-  
+  background:
+    repeating-linear-gradient(to right,
+      rgba(217, 217, 217, 0.252) 0,
+      rgba(217, 217, 217, 0.252) 1px,
+      transparent 1px,
+      transparent 100px),
+    repeating-linear-gradient(to bottom,
+      rgba(217, 217, 217, 0.252) 0,
+      rgba(217, 217, 217, 0.252) 1px,
+      transparent 1px,
+      transparent 100px);
+}
 
 body.dark h1,
 body.dark .support a {
@@ -48,7 +42,7 @@ body.dark .support a {
 
 @media (max-width: 900px) {
   .navSpacing {
-    margin-top: 7.4rem;
+    margin-top: 2rem;
   }
 
   .pageHeading {
@@ -86,14 +80,20 @@ body.dark .support a {
 }
 
 @keyframes slidein {
-    to {
-        opacity: 0.1;
-    }
+  to {
+    opacity: 0.1;
+  }
 }
 
 .fadeSlideOut {
-    bottom: -25% !important;
-    opacity: 0 !important;
-    transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: none !important;
+  bottom: -25% !important;
+  opacity: 0 !important;
+  transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: none !important;
+}
+
+@media (max-width: 600px) {
+  #watermarkText {
+    font-size: 100px;
+  }
 }

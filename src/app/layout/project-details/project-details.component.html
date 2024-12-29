@@ -2,7 +2,7 @@
     <div class="p-3">
         <img (click)="close()" class="goback" src="../../../assets/images/goback.png" alt="" srcset="">
         <p>Project Name :</p>
-        <h1>UI/UXERA</h1>
+        <h1>{{details.projectName}}</h1>
     </div>
 
     <p-galleria [value]="images" [autoPlay]="true" [circular]="true" [showItemNavigators]="true"
@@ -28,15 +28,15 @@
             <div class="techPill" *ngFor="let item of details.technologies">{{item}}</div>
         </div>
     </div>
-    <div class="p-3">
+    <!-- <div class="p-3">
         <h5 class="d-flex align-items-center"><img src="../../../assets/images/website.png" class="me-2" alt="" srcset="">Website</h5>
         <a href="http://www.google.com">{{details.website}}</a>
-    </div>
+    </div> -->
     <div class="p-3 mb-3">
         <h5 class="d-flex align-items-center"><img src="../../../assets/images/github.png" class="me-2" alt="" srcset="">Github</h5>
-        <a href="http://">{{details.github}}</a>
+        <a class="handleOverflowText" [href]="details.github">{{details.github}}</a>
     </div>
-    <div class="open-project py-3 d-flex justify-content-center align-items-center">
+    <div #openProjectSection class="open-project py-3 d-flex justify-content-center align-items-center">
         <span class="me-2" (click)="openProject()">Open Project</span>
         <img src="../../../assets/images/projectLink.png" alt="" srcset="">
     </div>

@@ -2,10 +2,59 @@
   padding: 4rem 10rem;
 }
 
-.socials {
-  width: 30px;
-  height: auto;
-  border-radius: 50%;
+.social-media {
+  display: flex;
+  gap: 20px;
+  /* Space between icons */
+}
+
+.social-icon {
+  text-decoration: none;
+  /* Remove underline from links */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  /* For the underline effect */
+}
+
+.social-icon img {
+  width: 50px;
+  /* Adjust icon size */
+  height: 50px;
+  /* Adjust icon size */
+  transition: color 0.3s ease;
+  /* Smooth color transition */
+}
+
+.social-icon:hover {
+  cursor: pointer;
+  /* Change cursor to pointer */
+}
+
+.social-icon::after {
+  content: "";
+  /* Create an underline effect */
+  position: absolute;
+  width: 0;
+  /* Start with width 0 */
+  height: 2px;
+  /* Underline thickness */
+  background-color: #000;
+  /* Underline color */
+  bottom: -5px;
+  /* Position under the icon */
+  left: 50%;
+  /* Center the underline */
+  transform: translateX(-50%);
+  /* Centering adjustment */
+  transition: width 0.3s ease;
+  /* Smooth transition for underline width */
+}
+
+.social-icon:hover::after {
+  width: 100%;
+  /* Grow to full width on hover */
 }
 
 h4 {
@@ -67,6 +116,7 @@ button:hover {
   border-right: solid 0.5px;
   animation: slide-in-left ease forwards 0.3s;
 }
+
 @keyframes slide-in-left {
   to {
     opacity: 1;
@@ -79,6 +129,7 @@ button:hover {
   opacity: 0;
   animation: slide-in-right ease-in-out forwards 0.3s;
 }
+
 @keyframes slide-in-right {
   to {
     opacity: 1;
@@ -107,7 +158,7 @@ button:hover {
   visibility: visible !important;
   opacity: 1 !important;
 }
-  
+
 .toast-close {
   cursor: pointer;
   margin-left: 15px;
@@ -118,9 +169,17 @@ button:hover {
   .contactMePage {
     padding: 0 2rem;
   }
+
   .left-section {
     border-right: none;
-    border-bottom: solid 0.5px;
     margin-bottom: 1rem;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+
+  .social-media {
+    gap: 10px;
   }
 }

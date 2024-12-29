@@ -121,9 +121,21 @@
     z-index: 9;
   }
 
+  .nav-links li:first-child {
+    display: contents;
+  }
+
   .hamburger {
     display: block;
     /* Show hamburger icon */
+  }
+
+  #cursor {
+    display: none;
+  }
+
+  #cursor-border {
+    display: none;
   }
 }
 
