@@ -124,7 +124,7 @@ export class ProjectsService {
     },
 
     'WEATHERAPP': {
-      projectName: 'SU Weather',
+      projectName: '4Cast',
       about:
         'This application allows users to enter the name of a city or area to receive up-to-date weather details along with a stunning visual representation of the location. By integrating the OpenWeather API, users can access accurate weather information, including temperature, humidity, and weather conditions. Simultaneously, the app fetches a beautiful, random image of the specified area using the Unsplash API, creating an immersive experience that combines weather data with visual appeal.',
       technologies: ['OpenWeather API', 'HTML5', 'CSS3', 'Javascript'],

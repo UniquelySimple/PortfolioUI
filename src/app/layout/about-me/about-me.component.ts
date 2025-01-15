@@ -84,7 +84,8 @@ export class AboutMeComponent implements AfterViewInit, OnDestroy {
 
   route(path: string) {
     this.mainService.toggleNavTheme(true);
-    this.router.navigate(['/projects']);
+    this.mainService.currentRoute = path;
+    this.router.navigate([path]);
   }
 
   ngOnDestroy(): void {
