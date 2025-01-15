@@ -5,7 +5,7 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class MainService {
-  currentRoute: string = '';
+  currentRoute: string = '/';
   changeNavToDarkMode = new Subject<boolean>();
   NavThemeToggle$ = this.changeNavToDarkMode.asObservable();
 

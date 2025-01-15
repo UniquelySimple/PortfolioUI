@@ -134,7 +134,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   navigateWithReverseAnimation(componentRoute: string) {
-    if (this.mainService.currentRoute == componentRoute) {
+    console.log(this.router.url);
+    if (this.mainService.currentRoute == componentRoute || (this.mainService.currentRoute == '/' && this.router.url == '/home')) {
       return;
     }
     if (this.isHamburgerTriggered) {
